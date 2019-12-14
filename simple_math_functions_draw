@@ -1,0 +1,20 @@
+# plotting values ranged 1 ... n for Function y=x^2
+# inspired by https://www.math.ucla.edu/~anderson/rw1001/library/base/html/plot.html
+
+y <-function (x) {x^2}
+
+xx <- c(1:7)
+yy <- c(y(xx))
+plot (xx,yy)
+
+xx <- c(1:77)
+yy <- c(y(xx))
+plot (xx,yy)
+
+xx <- c(1:77)
+yy <- c(y(xx))
+plot (xx,yy,type="l")
+
+
+# https://www.britannica.com/science/spiral-mathematics
+# is waiting to be plotted
