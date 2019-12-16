@@ -4,28 +4,21 @@
 #
 ##### ##### ##### -------- Arithmetics
 #
-# Addition
-5 + 5 
-# Subtraction
-5 - 5 
-# Multiplication
-3 * 5
- # Division
-(5 + 5) / 2 
-# Exponentiation
-2^5
-# Modulo
-28 %% 6
+# Addition # Subtraction # Multiplication # Division
+(5 + 5) / 2 * (7 - 1)
+# Exponentiation # Modulo
+2^5 + 28 %% 6
 
 ##### ##### ##### -------- Variables
-## Data Types: 
+
+##### ##### ##### Data Types: 
 x <- 42 #integer
 z <- 3.2 #numeric
 my_logical <- FALSE #logical
 w <- "forty_two" #characters
 
-ls() #shows the variables defined at workspace
-class(x) #checking the variable x Data type
+ls() #variables defined at workspace
+class(x) # x Data type
 is.numeric(x)
 y <- as.numeric(x) #enforce data to change type
 
@@ -62,7 +55,6 @@ categorical_student
 levels(mtcars$am) #checks the levels of factor variables (how much different..)
 
 ##### ##### ##### -------- DataFrames
-
 # Contracting a dataFrame
 my.dataframe <- data.frame(c1, c2, ...)
 my_df <- mtcars[1:10,] # First 10 elements of the built-in data frame 'mtcars'
