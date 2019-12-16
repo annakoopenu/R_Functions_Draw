@@ -1,6 +1,6 @@
 # based on https://campus.datacamp.com/courses/basic-statistics/lab-0-the-basics-of-r?ex=1
 
-############### 1 - The basics of R #####################
+############################## 1 - The basics of R #####################
 #
 ##### ##### ##### -------- Arithmetics
 #
@@ -85,7 +85,55 @@ my_list[[3]][,1]
 
 
 
-############### 1 - More introduction to R #####################
+############################## 2 - More introduction to R #####################
+# asking for help
+?mean
+help(mean)
+args(mean) # ask for the arguments used by the mean function
+
+##### ##### ##### -------- Functions
+grades <- c(8.5, 7, 9, 5.5, 6)
+mean (x = grades) # calculate the mean of grades using matching by name
+mean(grades)      # calculate the mean of grades using matching by position
+grades <- c(8.5, 7, 9, NA, 6)
+mean(grades, na.rm = TRUE)
+
+# make a function 
+multiply_a_b <- function (a,b){
+  return (a*b)
+}
+# call the function
+result <- multiply_a_b(3,7)
+
+
+# load in the data from a file
+data_file <- file("http://s3.amazonaws.com/assets.datacamp.com/course/uva/mtcars.csv")
+cars <- read.csv(data_file)
+cars <- read.csv(data_file,sep=";")
+# Functions to read in data from different formats: 
+#read.table: Reads in tabular data such as txt files
+#read.csv: Read in data from a comma-separated file format
+#readWorksheetFromFile : Reads in an excel worksheet
+#read.spss: Reads in data from .sav SPSS format.
+
+getwd() # retrieve the current working directory
+setwd() # set the current working directory
+list.files() # list all the files in the working directory
+library(ggplot2) # load the ggplot2 package using the library function (importing R packages)
+
+
+
+
+############################## 3 - Exploring Data #####################
+
+
+
+
+
+
+
+
+
 
 
 
