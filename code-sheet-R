@@ -59,6 +59,7 @@ student_status <- c("student", "not student", "student", "not student")
 # turn student_status vector into a factor and save it in the variable categorical_student
 categorical_student <- factor(student_status)
 categorical_student
+levels(mtcars$am) #checks the levels of factor variables (how much different..)
 
 ##### ##### ##### -------- DataFrames
 
@@ -127,12 +128,25 @@ library(ggplot2) # load the ggplot2 package using the library function (importin
 ############################## 3 - Exploring Data #####################
 
 
+##### ##### ##### -------- Working with Data Frames
 
+#Assign the label "high" to mpgcategory where mpg is greater than or equal to 20
+mtcars2$mpgcategory[mtcars2$mpg >= 20] <- "high"
+#Assign the label "low" to mpgcategory where mpg is less than 20
+mtcars2$mpgcategory[mtcars2$mpg < 20] <- "low"
+#Assign mpgcategory as factor to mpgfactor
+mtcars2$mpgfactor <- as.factor(mtcars2$mpgcategory)
+temp <- data.frame(mtcars2$mpg,mtcars2$mpgcategory,mtcars2$mpgfactor)
+str(temp)
 
+##### ##### ##### -------- Examining Frequencies
+table()  #  To look at a frequency table of the data in R,
+#How many of the cars have a manual transmission?
+am.in.cars <- table(mtcars$am)
+am.in.cars
 
-
-
-
+num.of.cars.manual <- am.in.cars[[2]][1]
+num.of.cars.manual
 
 
 
