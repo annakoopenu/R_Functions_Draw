@@ -203,15 +203,34 @@ mmm
 # Plot height and weight of the "women" dataset. Make the title "Heights and Weights"
 plot(women$weight,women$height,main = "Heights and Weights")
 
-
 ##### ##### ##### -------- Contingency table 
 str(smoking)
 table(smoking$tobacco,smoking$student)
 
+##### ##### ##### -------- Regression
+You've conducted a study looking at how much money people have (dependent variable)
+and their education level (independent variable).
+Let's check some different things in your data!
+cor(var1,var2) 
+# your data
+money <- c(4, 3, 2, 2, 8, 1, 1, 2, 3, 4, 5, 6, 7, 9, 9, 8, 12)
+education <- c(3, 4, 6, 9, 3, 3, 1, 2, 1, 4, 5, 7, 10, 8, 7, 6, 9)
 
+# calculate the correlation between X and Y
+cor(education,money)
 
+# save regression coefficients as object "line"
+line <- lm(money ~ education)
 
+# print the regression coefficients
+lm(education ~ money)
 
+# plot Y and X
+plot(education,money,main="My Scatterplot")
 
+# add the regression line
+abline(line)
+abline(mean(money),0,col="blue")
 
+###################################    5 -      ##########################
 
