@@ -1,6 +1,6 @@
 # based on https://campus.datacamp.com/courses/basic-statistics/lab-0-the-basics-of-r?ex=1
 
-############################## 1 - The basics of R #####################
+###################################   1 - The basics of R   ##########################
 #
 ##### ##### ##### -------- Arithmetics
 #
@@ -78,7 +78,7 @@ my_list[[3]][,1]
 
 
 
-############################## 2 - More introduction to R #####################
+###################################    2 - More introduction to R   ##########################
 # asking for help
 ?mean
 help(mean)
@@ -117,11 +117,10 @@ library(ggplot2) # load the ggplot2 package using the library function (importin
 
 
 
-############################## 3 - Exploring Data #####################
-
+###################################    3 - Exploring Data     ##########################
 
 ##### ##### ##### -------- Working with Data Frames
-
+dim(mtcars) #dimentions of data set
 #Assign the label "high" to mpgcategory where mpg is greater than or equal to 20
 mtcars2$mpgcategory[mtcars2$mpg >= 20] <- "high"
 #Assign the label "low" to mpgcategory where mpg is less than 20
@@ -129,7 +128,8 @@ mtcars2$mpgcategory[mtcars2$mpg < 20] <- "low"
 #Assign mpgcategory as factor to mpgfactor
 mtcars2$mpgfactor <- as.factor(mtcars2$mpgcategory)
 temp <- data.frame(mtcars2$mpg,mtcars2$mpgcategory,mtcars2$mpgfactor)
-str(temp)
+str(temp)  #variables of data set
+levels(mtcars$am)
 
 ##### ##### ##### -------- Examining Frequencies
 table()  #  To look at a frequency table of the data in R,
@@ -140,8 +140,73 @@ am.in.cars
 num.of.cars.manual <- am.in.cars[[2]][1]
 num.of.cars.manual
 
+##### ##### ##### -------- Making a Bar Graph (good for categorical variables)
+height  <- table(mtcars$am)
+barplot(height)
+barnames <- c("automatic","manual")
+# Label the y axis "number of cars" and label the bars using barnames
+barplot(height,names.arg=barnames,ylab="number of cars")
 
 
+##### ##### ##### -------- Making an Histograms (good for quantative continuous variables)
+hist(mtcars$carb,main="Carburetors",xlab="Numer of carburators")
+# arguments to change the y-axis scale to 0 - 20, label the x-axis and colour the bars red
+hist(mtcars$carb, main = "Carburetors",ylim=c(0,20),col="red",xlab="Number of Carburetors")
+
+
+##### ##### ##### -------- Mean, Median and Mode
+mean(mtcars$mpg)
+median(mtcars$mpg)
+# Produce a sorted frequency table to find a Mode
+f <- table(mtcars$carb)
+sort(f,decreasing = TRUE)
+
+
+##### ##### ##### -------- Range
+sorted <- sort(mtcars$mpg)
+x <- min(sorted) # Minimum value
+y <- max(sorted) # Maximum value
+# Calculate the range of mpg using x and y
+range_of <- y - x
+# or
+range(sorted)
+
+##### ##### ##### -------- Quartiles
+q <-quantile(mtcars$qsec)
+q[[2]][1] # the value of the first quartile?
+q[[3]][1] # the value of the second quartile?
+
+# Make a boxplot of qsec
+boxplot(mtcars$qsec)
+# Calculate the interquartile range of qsec
+IQR(mtcars$qsec)
+threshold <- IQR(mtcars$qsec)*1.5
+
+
+##### ##### ##### -------- Standart Deviation
+# Find the standard deviation of miles per gallon
+sd(mtcars$mpg)
+
+##### ##### ##### -------- Calculating Z-scores
+# Calculate the z-scores of mpg
+m <- mtcars$mpg
+mtcars$mpg
+m_mean <- mean(m)
+m_sd <- sd(m)
+mmm <- c((m - m_mean)/sd(m))
+mmm
+
+
+###################################    4 - Correlation and Regression     ##########################
+
+##### ##### ##### -------- Scatterplots
+# Plot height and weight of the "women" dataset. Make the title "Heights and Weights"
+plot(women$weight,women$height,main = "Heights and Weights")
+
+
+##### ##### ##### -------- Contingency table 
+str(smoking)
+table(smoking$tobacco,smoking$student)
 
 
 
