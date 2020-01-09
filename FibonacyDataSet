@@ -1,0 +1,22 @@
+#Fibonaci Numbers DataFrame
+
+fibonacy <- function (howmany = 7)
+{
+  
+  fibonacy_seq <- c(1,2)
+  
+  for (i in (3:howmany))   {
+    fibonacy_seq[c(i)] <- fibonacy_seq[c(i-1)] + fibonacy_seq[c(i-2)]  
+  }
+  
+  fibonacy_seq
+}
+
+# the data frame
+fibo_data <- data.frame(counter = 1:17, fibo = fibonacy(17))
+print(fibo_data)
+
+x <- fibo_data[,c("counter")]
+y <- fibo_data[,c("fibo")]
+plot(x,y,type="l")
+plot(x,y)
