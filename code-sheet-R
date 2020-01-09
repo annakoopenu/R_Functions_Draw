@@ -29,30 +29,22 @@ y <- as.numeric(x) #enforce data to change type
 # DataFrame - A data frame has the variables of a data set as columns and the observations as rows.
 # List - gather a variety of objects under one name 
 
-##### ##### ##### -------- Vectors
-# Creating a vector
+##### ##### ##### -------- Vectors -------- # Creating a vector  
 numeric_vector <- c(1, 10, 49)   
 character_vector <- c("a", "b", "c")
 boolean_vector <- c(TRUE, FALSE, TRUE)
 my_vector <- 1:10 # Vector with numerics from 1 up to 10
-# Selecting from a vector
+
+##### ##### ##### -------- Vectors -------- # Selecting from a vector
 character_vector[c(1)]
 boolean_vector[c(2,3)]
-larger_than_ten <- numeric_vector > 10 
-# Selecting only the values larger than 10
+larger_than_ten <- numeric_vector > 10  # Selecting only the values larger than 10
 numeric_vector[larger_than_ten] 
 
-##### ##### ##### -------- Matrix
-# Creating a matrix
+##### ##### ##### -------- Matrix --- # Creating a matrix
 m <- matrix(1:20, byrow = TRUE, nrow = 5, ncol = 4)
 my_matrix <- matrix(1:9, ncol = 3) # Matrix with numerics from 1 up to 9
 
-##### ##### ##### -------- Factor
-student_status <- c("student", "not student", "student", "not student")
-# turn student_status vector into a factor and save it in the variable categorical_student
-categorical_student <- factor(student_status)
-categorical_student
-levels(mtcars$am) #checks the levels of factor variables (how much different..)
 
 ##### ##### ##### -------- DataFrames
 # Contracting a dataFrame
@@ -76,6 +68,13 @@ my_list <- list(my_vector, my_matrix, my_df)
 my_list[2]
 my_list[[3]][,1]
 
+
+##### ##### ##### -------- Factor
+student_status <- c("student", "not student", "student", "not student")
+# turn student_status vector into a factor and save it in the variable categorical_student
+categorical_student <- factor(student_status)
+categorical_student
+levels(mtcars$am) #checks the levels of factor variables (how much different..)
 
 
 ###################################    2 - More introduction to R   ##########################
